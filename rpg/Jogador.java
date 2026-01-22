@@ -47,7 +47,7 @@ public abstract class Jogador {
         System.out.println("HP Total restaurado. Dados de Vida: " + dadosDeVidaAtuais + "/" + dadosDeVidaTotais);
     }
 
-   // Em Jogador.java
+ 
 public void calcularCA() {
     int modDex = ficha.getModificador(ficha.getDestreza());
     int caFinal = 10 + modDex;
@@ -55,7 +55,7 @@ public void calcularCA() {
     String armaduraAtual = (this.armadura == null) ? "nenhuma" : this.armadura.toLowerCase();
 
     switch (armaduraAtual) {
-        // --- ARMADURAS LEVES (CA Base + Destreza Total) ---
+        // --- ARMADURAS LEVES ---
         case "acolchoada":
         case "couro":
             caFinal = 11 + modDex;
@@ -63,7 +63,7 @@ public void calcularCA() {
         case "couro batido":
             caFinal = 12 + modDex;
             break;
-        // --- ARMADURAS MÉDIAS (CA Base + Destreza (Máximo 2)) ---
+        // --- ARMADURAS MÉDIAS ---
         case "gibão de peles":
             caFinal = 12 + Math.min(modDex, 2);
             break;
@@ -77,7 +77,7 @@ public void calcularCA() {
         case "meia armadura":
             caFinal = 15 + Math.min(modDex, 2);
             break;
-        // --- ARMADURAS PESADAS (CA Base Fixa - Ignora Destreza) ---
+        // --- ARMADURAS PESADAS ---
         case "cota de anéis":
             caFinal = 14;
             break;
@@ -109,3 +109,4 @@ public void calcularCA() {
 
     public abstract void descansoCurto();
 }
+
