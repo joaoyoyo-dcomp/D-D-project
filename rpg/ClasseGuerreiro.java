@@ -1,10 +1,3 @@
-/*
-para conseguir montar uma ficha de um personagem de d&d nós temos
-que decidir a classe. A classe do jogador podem ser várias classes filhas
-todas as fichas possuem força, destreza, constituicao, sabedoria, inteligencia, carisma
-todas as fichas tem altura, nome, especie, antecedente, talento
-*/
-
 package treinando.rpg;
 
 public class ClasseGuerreiro extends Jogador {
@@ -150,3 +143,4 @@ public class ClasseGuerreiro extends Jogador {
         actionSurgeDisponivel = false;
     }
 }
+
