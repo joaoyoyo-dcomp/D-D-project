@@ -1,9 +1,16 @@
 package treinando.rpg;
 
 public class ClasseBarbaro extends Jogador {
-
+    private int furiasMaximas;   
+    private int furiasRestantes; 
+    private boolean emFuria;     
+    private int danoFuria;
     public ClasseBarbaro(String nome, int nivel, int idade, double altura, double peso, String linhagem, String antecedente, FichaGeral ficha, String armadura){
         super(nome, nivel, idade, altura, peso, linhagem, antecedente, ficha, armadura);
+        this.furiasMaximas = 2; 
+        this.furiasRestantes = this.furiasMaximas;
+        this.danoFuria = 2;
+        this.emFuria = false;
     }
 
     @Override
@@ -18,25 +25,13 @@ public class ClasseBarbaro extends Jogador {
     
     @Override
     public void diminuirHP(int dano) {
-    int saldoVida = this.hpAtual - dano;
-    
-    int limiteMorte = -(this.hpMaximo / 2);
-    
-    if (saldoVida < limiteMorte) {
-        this.hpAtual = 0;
-        this.estaMorto = true;
-        System.out.println("☠️ DANO MASSIVO! " + this.nome + " morreu instantaneamente.");
-    }
-    
-    else if (saldoVida <= 0) {
-        this.hpAtual = 0;
-        System.out.println("⚠️ " + this.nome + " caiu inconsciente (0 HP)!");
-    }
-    
-    else {
-        this.hpAtual = saldoVida;
-        System.out.println(this.nome + " tomou " + dano + " de dano. HP: " + hpAtual);
-    }
+        int danoFinal = dano;
+
+        if (this.emFuria) {
+        danoFinal = dano / 2;
+        System.out.println("Fúria reduziu o dano de " + dano + " para " + danoFinal);
+        }
+    super.diminuirHP(danoFinal); 
     }
 
     @Override
@@ -71,14 +66,19 @@ public class ClasseBarbaro extends Jogador {
             System.out.println("-> Gastou 1 Dado de Vida para se curar.");
         }
     }
+    @Override
+    public void realizarDescansoLongo(){
+        super.realizarDescansoLongo();
+        this.furiasRestantes = this.furiasMaximas;
+        this.emFuria = false;
+        System.out.println("Todas as habilidades do Bárbaro recarregadas!");
+    }
 
     @Override
     public void calcularCA() {
-    
         if(this.armadura == null || this.armadura.equalsIgnoreCase("nenhuma")) {
             int modDex = ficha.getModificador(ficha.getDestreza());
             int modCon = ficha.getModificador(ficha.getConstituicao());
-        
             int caBarbaro = 10 + modDex + modCon;
 
             System.out.println("CA de Bárbaro (Sem Armadura): " + caBarbaro);
@@ -86,7 +86,29 @@ public class ClasseBarbaro extends Jogador {
             super.calcularCA();
         }
     }
+    
+    public void ativarFuria(){
+        if (this.emFuria) {
+        System.out.println("Você já está em fúria!");
+        return;
+        }
+        if (this.furiasRestantes <= 0) {
+        System.out.println("Precisa de um descanso longo.");
+        return;
+        }
+        this.furiasRestantes--;
+        this.emFuria = true;
 
+    System.out.println("Fúria Ativada");
+    System.out.println("Fúrias restantes: " + this.furiasRestantes);
+    }
+
+    public void acabarFuria() {
+        if (this.emFuria) {
+        this.emFuria = false;
+        System.out.println("Sua fúria passou.");
+        }
+    }
 
 
 

@@ -17,29 +17,6 @@ public class ClasseDruida extends Jogador {
         }
     
     @Override
-    public void diminuirHP(int dano) {
-    int saldoVida = this.hpAtual - dano;
-    
-    int limiteMorte = -(this.hpMaximo / 2);
-    
-    if (saldoVida < limiteMorte) {
-        this.hpAtual = 0;
-        this.estaMorto = true;
-        System.out.println("☠️ DANO MASSIVO! " + this.nome + " morreu instantaneamente.");
-    }
-    
-    else if (saldoVida <= 0) {
-        this.hpAtual = 0;
-        System.out.println("⚠️ " + this.nome + " caiu inconsciente (0 HP)!");
-    }
-    
-    else {
-        this.hpAtual = saldoVida;
-        System.out.println(this.nome + " tomou " + dano + " de dano. HP: " + hpAtual);
-    }
-    }
-
-    @Override
     public void recuperarHP(int cura){
         if(this.hpAtual <= this.hpMaximo){
             this.hpAtual += cura;

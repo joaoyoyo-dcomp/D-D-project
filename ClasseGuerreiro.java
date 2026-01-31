@@ -1,10 +1,3 @@
-/*
-para conseguir montar uma ficha de um personagem de d&d nós temos
-que decidir a classe. A classe do jogador podem ser várias classes filhas
-todas as fichas possuem força, destreza, constituicao, sabedoria, inteligencia, carisma
-todas as fichas tem altura, nome, especie, antecedente, talento
-*/
-
 package treinando.rpg;
 
 public class ClasseGuerreiro extends Jogador {
@@ -28,29 +21,6 @@ public class ClasseGuerreiro extends Jogador {
             this.hpAtual = this.hpMaximo;
         System.out.println("O hp de " + this.nome + " eh esse aqui: " + this.hpAtual);
         }
-    
-    @Override
-    public void diminuirHP(int dano) {
-    int saldoVida = this.hpAtual - dano;
-    
-    int limiteMorte = -(this.hpMaximo / 2);
-    
-    if (saldoVida < limiteMorte) {
-        this.hpAtual = 0;
-        this.estaMorto = true;
-        System.out.println("☠️ DANO MASSIVO! " + this.nome + " morreu instantaneamente.");
-    }
-    
-    else if (saldoVida <= 0) {
-        this.hpAtual = 0;
-        System.out.println("⚠️ " + this.nome + " caiu inconsciente (0 HP)!");
-    }
-    
-    else {
-        this.hpAtual = saldoVida;
-        System.out.println(this.nome + " tomou " + dano + " de dano. HP: " + hpAtual);
-    }
-    }
 
     @Override
     public void recuperarHP(int cura){
@@ -149,4 +119,5 @@ public class ClasseGuerreiro extends Jogador {
         System.out.println("Você possui uma ação extra");
         actionSurgeDisponivel = false;
     }
+
 }
