@@ -1,8 +1,8 @@
-package treinando.rpg;
+package rpg.personagens;
 
-public class ClassePatrulheiro extends Jogador {
+public class ClasseDruida extends Jogador {
 
-    public ClassePatrulheiro(String nome, int nivel, int idade, double altura, double peso, String linhagem, String antecedente, FichaGeral ficha){
+    public ClasseDruida(String nome, int nivel, int idade, double altura, double peso, String linhagem, String antecedente, FichaGeral ficha){
         super(nome, nivel, idade, altura, peso, linhagem, antecedente, ficha);
     }
 
@@ -15,7 +15,7 @@ public class ClassePatrulheiro extends Jogador {
             this.hpAtual = this.hpMaximo;
         System.out.println("O hp de " + this.nome + " eh esse aqui: " + this.hpAtual);
         }
-
+    
     @Override
     public void recuperarHP(int cura){
         if(this.hpAtual <= this.hpMaximo){
@@ -43,4 +43,3 @@ public class ClassePatrulheiro extends Jogador {
 
     }
 }
-

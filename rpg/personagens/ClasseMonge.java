@@ -1,13 +1,13 @@
-package treinando.rpg;
+package rpg.personagens;
 
-public class ClassePaladino extends Jogador {
+public class ClasseMonge extends Jogador {
 
-    public ClassePaladino(String nome, int nivel, int idade, double altura, double peso, String linhagem, String antecedente, FichaGeral ficha){
+    public ClasseMonge(String nome, int nivel, int idade, double altura, double peso, String linhagem, String antecedente, FichaGeral ficha){
         super(nome, nivel, idade, altura, peso, linhagem, antecedente, ficha);
     }
 
     @Override
-    public void calcularHP(){
+     public void calcularHP(){
         int modCon = ficha.getModificador(ficha.getConstituicao());
         hpMaximo = 10 + modCon;
         for(int i = 1; i<nivel; i++){
@@ -15,7 +15,7 @@ public class ClassePaladino extends Jogador {
             this.hpAtual = this.hpMaximo;
         System.out.println("O hp de " + this.nome + " eh esse aqui: " + this.hpAtual);
         }
-    
+
     @Override
     public void recuperarHP(int cura){
         if(this.hpAtual <= this.hpMaximo){
@@ -42,4 +42,17 @@ public class ClassePaladino extends Jogador {
     public void descansoCurto(){
 
     }
+    @Override
+    public void calcularCA() {
+        if(this.armadura == null || this.armadura.equalsIgnoreCase("nenhuma")) {
+            int modDex = ficha.getModificador(ficha.getDestreza());
+            int modSab = ficha.getModificador(ficha.getSabedoria());
+            int caMonge = 10 + modDex + modSab;
+
+            System.out.println("CA de Bárbaro (Sem Armadura): " + caMonge);
+        }else{
+            super.calcularCA();
+        }
+    }
 }
+

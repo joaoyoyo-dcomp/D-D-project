@@ -1,8 +1,7 @@
-package treinando.rpg;
+package rpg.personagens;
+public class ClasseLadino extends Jogador {
 
-public class ClasseArtifice extends Jogador {
-
-    public ClasseArtifice(String nome, int nivel, int idade, double altura, double peso, String linhagem, String antecedente, FichaGeral ficha){
+    public ClasseLadino(String nome, int nivel, int idade, double altura, double peso, String linhagem, String antecedente, FichaGeral ficha){
         super(nome, nivel, idade, altura, peso, linhagem, antecedente, ficha);
     }
 

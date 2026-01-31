@@ -1,5 +1,5 @@
-package treinando.rpg;
 
+package rpg.personagens;
 public class ClasseBarbaro extends Jogador {
     private int furiasMaximas;   
     private int furiasRestantes; 

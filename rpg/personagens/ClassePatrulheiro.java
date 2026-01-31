@@ -1,13 +1,14 @@
-package treinando.rpg;
 
-public class ClasseFeiticeiro extends Jogador {
+package rpg.personagens;
 
-    public ClasseFeiticeiro(String nome, int nivel, int idade, double altura, double peso, String linhagem, String antecedente, FichaGeral ficha){
+public class ClassePatrulheiro extends Jogador {
+
+    public ClassePatrulheiro(String nome, int nivel, int idade, double altura, double peso, String linhagem, String antecedente, FichaGeral ficha){
         super(nome, nivel, idade, altura, peso, linhagem, antecedente, ficha);
     }
 
     @Override
-     public void calcularHP(){
+    public void calcularHP(){
         int modCon = ficha.getModificador(ficha.getConstituicao());
         hpMaximo = 10 + modCon;
         for(int i = 1; i<nivel; i++){
@@ -15,7 +16,6 @@ public class ClasseFeiticeiro extends Jogador {
             this.hpAtual = this.hpMaximo;
         System.out.println("O hp de " + this.nome + " eh esse aqui: " + this.hpAtual);
         }
-    
 
     @Override
     public void recuperarHP(int cura){

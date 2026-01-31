@@ -1,5 +1,5 @@
-package treinando.rpg;
 
+package rpg.personagens;
 public class FichaGeral {
     protected int forca;
     protected int destreza;

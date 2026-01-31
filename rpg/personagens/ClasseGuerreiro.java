@@ -1,5 +1,4 @@
-package treinando.rpg;
-
+package rpg.personagens;
 public class ClasseGuerreiro extends Jogador {
     private boolean secondWindDisponivel;
     private boolean actionSurgeDisponivel;

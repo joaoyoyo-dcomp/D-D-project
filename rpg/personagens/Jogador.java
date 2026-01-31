@@ -1,4 +1,4 @@
-package treinando.rpg;
+package rpg.personagens;
 
 public abstract class Jogador {
     protected String nome;
@@ -28,6 +28,11 @@ public abstract class Jogador {
         this.armadura = armadura;
         this.dadosDeVidaTotais = this.nivel;
         this.dadosDeVidaAtuais = this.dadosDeVidaTotais;
+    }
+
+    public Jogador(String nome2, int nivel2, int idade2, double altura2, double peso2, String linhagem2,
+            String antecedente2, FichaGeral ficha2) {
+        //TODO Auto-generated constructor stub
     }
 
     public boolean isMorto() {
