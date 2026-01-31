@@ -23,18 +23,6 @@ public class ClasseGuerreiro extends Jogador {
         }
 
     @Override
-    public void recuperarHP(int cura){
-        if(this.hpAtual <= this.hpMaximo){
-            this.hpAtual += cura;
-        }
-        if (this.hpAtual > this.hpMaximo) {
-            this.hpAtual = this.hpMaximo;
-        }
-        
-        System.out.println(hpAtual);
-    }
-    
-    @Override
     public void exibirStatus(){
         System.out.println("Exibindo dados de "+this.nome);
         System.out.println(this.idade);
@@ -100,17 +88,11 @@ public class ClasseGuerreiro extends Jogador {
             System.out.println("Essa habilidade já foi usada");
             return;
         }
-        if(this.hpAtual >= this.hpMaximo){
-            System.out.println("Vida cheia");
-            return;
-        }
-        
         int cura = 6 + this.nivel;
-            this.hpAtual += cura;
+        this.recuperarHP(cura);
             secondWindDisponivel = false;
-
-        System.out.println("Seu hp após retomar o fòlego é " + this.hpAtual);
     }
+    
     public void surtoDeAcao(){
         if(!actionSurgeDisponivel){
             System.out.println("Essa habilidade já foi usada");

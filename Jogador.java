@@ -115,11 +115,20 @@ public abstract class Jogador {
         }
     }
 
+    public void recuperarHP(int cura){   
+        if(this.hpAtual <= this.hpMaximo){
+            this.hpAtual += cura;
+        }
+        
+        if (this.hpAtual > this.hpMaximo) {
+            this.hpAtual = this.hpMaximo;
+        }
+        System.out.println(hpAtual);
+    }
+
     public abstract void exibirStatus();
 
     public abstract void calcularHP();
-
-    public abstract void recuperarHP(int cura);
 
     public abstract void descansoCurto();
 }
